@@ -1,0 +1,38 @@
+
+.text-danger{
+	color:red;
+}
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+	margin-bottom: 10px
+}
+
+h2	 {
+	font-family: 'Oswald', sans-serif;
+	margin-bottom: 10px
+}
+.cupom{
+	font-family: 'Oswald', sans-serif;
+}
+
+.item p {
+  font-size: 13px;
+}
+
+p.preco {
+	font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.item.item-divider.warning {
+    background-color: #efe61f;
+}
+
+.title{
+	font-family: 'Oswald', sans-serif;
+  font-size: 29px;
+  text-align: center;
+}

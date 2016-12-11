@@ -1,0 +1,14 @@
+<ion-view class="text-center item-icon-rigth" view-title="{{empresas.cidade.CID_Nome}}">
+  <ion-content>
+  <div class="total_found">Encontrados {{empresas.empresas.length}} resultados</div>
+  	<div class="list">
+
+	    <a ng-repeat="data in empresas.empresas" class="item item-thumbnail-left text-left" ng-click="promocao(data.PRO_CodigoEmpresa)">
+	      <img src="{{data.EMP_Foto}}">
+	      <h2><b>{{data.EMP_Nome}}</b></h2>
+	      <p>{{data.EMP_Endereco}}</p>
+	    </a>
+		</div>
+  </ion-content>
+</ion-view>
+

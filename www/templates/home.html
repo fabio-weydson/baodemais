@@ -1,0 +1,35 @@
+<ion-view  hide-nav-bar="true" class="home" view-title="Inicio">
+  <ion-content>
+  	<div class="item item-image">
+    	<img src="img/logotipo.png">
+  	</div>
+  	<form name="form" >
+  		<div class="list list-inset">
+		  <!-- <label class="item item-input">
+		    <i class="icon ion-search placeholder-icon"></i>
+		    <input type="text" placeholder="Cidade, Estado, Palavras Chave">
+		  </label> -->
+
+		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      Selecione uma cidade
+		    </div>
+		    <select ng-model="filtro.CID_CodigoCidade" ng-required="true">
+		      <option ng-repeat="estado in dados.estados" ng-value="{{estado.CID_CodigoCidade}}">{{estado.CID_Nome +' - '+ estado.CID_UF}}</option>
+		    </select>
+		  </label>
+		    <a class="button button-block button-invert item-icon-left">
+			 <i class="icon ion-navigate"></i> Utilizar Minha Localização
+			</a>
+		  <a ng-disabled="form.$invalid" ng-click="buscarPromocoes(filtro)" class="button button-block button-positive item-icon-right">
+			 <i class="icon ion-ios-arrow-forward"></i> Buscar Promoções
+			</a>
+			<!-- <a ng-click="deleteStorage()" class="button button-block button-assertive item-icon-left">
+			 <i class="icon ion-search"></i> #DELETE#
+			</a> -->
+			
+		</div>
+  	</form>
+  </ion-content>
+</ion-view>
+

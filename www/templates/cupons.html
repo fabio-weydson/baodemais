@@ -1,0 +1,55 @@
+<ion-view  view-title="">
+  <ion-content ng-class="class">
+  	<div ng-if="existeStorage == 0">
+	  	<div class="item item-image">
+	    	<img src="../img/logotipo.png">
+	  	</div>
+		  <div style="padding:20px" class="col-100">
+		  	<h2>Ops, parece que você ainda não adicionou nenhum cupom</h2>
+		  </div>
+		  <div class="list list-inset">
+		  	<a ng-click="navigate('app.home')" class="button button-block button-positive item-icon-left">
+				 <i class="icon ion-search"></i> Buscar Promoções
+				</a>
+		  </div>
+  	</div>
+  	<div ng-if="existeStorage == 1">
+	  	<div class="list list-inset">
+			  <label class="item item-input">
+			    <i class="icon ion-search placeholder-icon"></i>
+			    <input ng-model="filtro.EMP_Nome" type="text" placeholder="Empresa">
+			  </label>
+			</div>
+	  	<div id="cupons" ng-repeat="promocao in dados">
+	  		<div class="row">
+			  	<div class="card">
+					  <div class="item item-text-wrap">
+					    <img src="{{promocao.PRO_Imagem}}" style="width: 100%;">
+					    <hr>
+					    <h2>{{promocao.EMP_Nome}}</h2>
+					    <p>{{promocao.EMP_Endereco}}, {{promocao.EMP_Telefone}} - {{promocao.EMP_DiaFuncionamento}}/{{promocao.EMP_HorarioFuncionamento}}</p>
+					    <hr>
+					    <p><b class="text-danger">Válido até:</b> {{promocao.PRO_Vencimento | date:'dd/M/yyyy'}}</p>
+					    <p>{{promocao.PRO_Descricao}}</p>
+					    <p><b class="text-danger">Regulamento:</b> {{promocao.PRO_Regulamento}}</p>
+					    <p class="preco">De R$ <b class="text-danger">{{promocao.PRO_PrecoAntigo | currency: 'R$ '}}</b> por <b class="text-danger">{{promocao.PRO_PrecoAtual | currency: 'R$ '}}</b></p>
+				    	<div class="card text-center">
+							  <div class="item item-divider">
+							    Cupom
+							  </div>
+							  <div class="item item-text-wrap">
+							    <h1 class="cupom">{{promocao.PRO_Voucher}}</h1>
+							  </div>
+							</div>
+							<!-- <ks-swiper-container loop="false" show-nav-buttons="true" slides-per-view="1" space-between="5" pagination-clickable="true">
+						    <ks-swiper-slide class="swiper-slide" ng-repeat="imagens in dados.imagens">
+						        <img ng-src="{{imagens.PROM_Imagem}}" width="100%">
+						    </ks-swiper-slide>            
+							</ks-swiper-container> -->
+					  </div>
+					</div>
+				</div>
+	  	</div>
+	  </div>
+  </ion-content>
+ </ion-view>
