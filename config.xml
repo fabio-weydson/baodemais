@@ -1,42 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.baumdemais746918" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Bao demais da conta!</name>
+<widget id="com.baodemais.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Bão demais</name>
   <description>
-        As melhores promoções da região
+       Aplicativo de demonstração
     </description>
-  <author email="contato@juninhoabrantes.com" href="http://example.com/">
+  <author email="contato@juninhoabrantes.com.br" href="http://crweb.com.br/">
       Juninho Abrantes
     </author>
   <content src="index.html"/>
   <access origin="*"/>
-  <content src="index.html"/>
-  <preference name="permissions" value="none"/>
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
- <feature name="http://api.phonegap.com/1.0/geolocation"/>
-  <preference name="target-device" value="universal"/>
-  <preference name="orientation" value="default"/>
-  <preference name="fullscreen" value="true"/>
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
-  <preference name="prerendered-icon" value="true"/>
-  <preference name="stay-in-webview" value="false"/>
-  <preference name="ios-statusbarstyle" value="blacktranslucent"/>
-  <preference name="StatusBarStyle" value="lightcontent"/>
-  <preference name="detect-data-types" value="true"/>
-  <preference name="exit-on-suspend" value="false"/>
-  <preference name="show-splash-screen-spinner" value="true"/>
-  <preference name="auto-hide-splash-screen" value="false"/>
-  <preference name="disable-cursor" value="false"/>
-  <preference name="android-minSdkVersion" value="14"/>
-  <preference name="android-installLocation" value="auto"/>
-  <preference name="android-build-tool" value="gradle"/>
-  <preference name="AutoHideSplashScreen" value="false"/>
-  <preference name="SplashScreenDelay" value="10000"/>
-  <preference name="phonegap-version" value="cli-5.2.0"/>
-  <preference name="SplashScreen" value="screen"/>
-  <preference name="android-targetSdkVersion" value="20"/>
-
+  <preference name="SplashScreenDelay" value="2000"/>
+  <preference name="FadeSplashScreenDuration" value="2000"/>
+  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <feature name="StatusBar">
+    <param name="ios-package" onload="true" value="CDVStatusBar"/>
+  </feature>
   <plugin name="cordova-plugin-device" spec="^1.1.3"/>
   <plugin name="cordova-plugin-console" spec="^1.0.4"/>
   <plugin name="cordova-plugin-whitelist" spec="^1.3.0"/>
@@ -44,32 +27,29 @@
   <plugin name="cordova-plugin-statusbar" spec="^2.2.0"/>
   <plugin name="ionic-plugin-keyboard" spec="^2.2.1"/>
 
-  <icon src="icon.png" />
+
+<icon src="icon.png" />
 <splash src="splash.png" /> 
 
+<!-- SPLASH -->
  <platform name="android">
     <!-- you can use any density that exists in the Android project -->
-    <splash src="resources/android/splash/hdpi-landscape.png" density="land-hdpi"/>
-    <splash src="resources/android/splash/ldpi-landscape.png" density="land-ldpi"/>
-    <splash src="resources/android/splash/mdpi-landscape.png" density="land-mdpi"/>
-    <splash src="resources/android/splash/xhdpi-landscape.png" density="land-xhdpi"/>
+    <splash src="splash.png" density="land-hdpi"/>
+    <splash src="splash.png" density="land-ldpi"/>
+    <splash src="splash.png" density="land-mdpi"/>
+    <splash src="splash.png" density="land-xhdpi"/>
 
-    <splash src="resources/android/splash/hdpi-portrait.png" density="port-hdpi"/>
-    <splash src="resources/android/splash/ldpi-portrait.png" density="port-ldpi"/>
-    <splash src="resources/android/splash/mdpi-portrait.png" density="port-mdpi"/>
-    <splash src="resources/android/splash/xhdpi-portrait.png" density="port-xhdpi"/>
+    <splash src="splash.png" density="port-hdpi"/>
+    <splash src="splash.png" density="port-ldpi"/>
+    <splash src="splash.png" density="port-mdpi"/>
+    <splash src="splash.png" density="port-xhdpi"/>
 
 </platform>
  <platform name="android">
-              <icon src="resources/android/icon/ldpi.png" density="ldpi" />
-              <icon src="resources/android/icon/mdpi.png" density="mdpi" />
-              <icon src="resources/android/icon/hdpi.png" density="hdpi" />
-              <icon src="resources/android/icon/xhdpi.png" density="xhdpi" />
+              <icon src="icon.png" density="ldpi" />
+              <icon src="icon.png" density="mdpi" />
+              <icon src="icon.png" density="hdpi" />
+              <icon src="icon.png" density="xhdpi" />
      </platform>
-  <platform name="android">
-    <allow-intent href="market:*"/>
-  </platform>
- <resource-file src="icon.png" target="res/drawable/noti-icon.png" />
-<resource-file src="icon.png" target="res/drawable-hdpi/noti-icon.png" />
-
+     
 </widget>
