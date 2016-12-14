@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('Home', function($scope, $http, $ionicLoading, base_url, $log, $httpParamSerializerJQLike, $state, $stateParams, StorageService){
+.controller('Home', function($scope, $http, $ionicLoading, base_url, $log, $httpParamSerializerJQLike, $state, $stateParams, StorageService, $cordovaGeolocation){
     $scope.load = true;
     StorageService.set();
 
@@ -19,6 +19,48 @@ angular.module('starter.controllers', [])
         $ionicLoading.hide();
       }
     });
+
+    $scope.getGeoLocation = function() { 
+      $ionicLoading.show({
+        template: 'Aguarde, estabelecendo sua localização',
+      })
+      var posOptions = {timeout: 10000, enableHighAccuracy: false};
+      $cordovaGeolocation
+        .getCurrentPosition(posOptions)
+        .then(function (position) {
+          $log.info(position);
+          var lat  = position.coords.latitude
+          var long = position.coords.longitude
+
+          $http({
+            method: 'GET',
+            url: 'http://nominatim.openstreetmap.org/reverse?lat=' + lat + '&lon=' + long + '&format=json'
+          }).success(function(response){
+            $log.info(response.address);
+
+            $http({
+              method: 'POST',
+              data:  $httpParamSerializerJQLike(response.address),
+              headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              url: base_url.get + '/api/getEstados'
+            }).success(function(response){
+              $log.warn(response);
+              $scope.dados = response;
+              $ionicLoading.hide();
+              buscarPromocoes($scope.dados.estados["0"]);
+            });
+          });
+        }, function(err) {
+          // error
+        });
+    }
+    var buscarPromocoes = function(data) {
+      $log.info(data);
+      $log.info($scope.dados);
+      $state.go('app.busca',{CID_CodigoCidade:data.CID_CodigoCidade});
+    }
 
     $scope.deleteStorage  = function() {
       StorageService.remove();

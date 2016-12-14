@@ -18,7 +18,7 @@
 		      <option ng-repeat="estado in dados.estados" ng-value="{{estado.CID_CodigoCidade}}">{{estado.CID_Nome +' - '+ estado.CID_UF}}</option>
 		    </select>
 		  </label>
-		    <a class="button button-block button-invert item-icon-left">
+		    <a ng-click="getGeoLocation()" class="button button-block button-invert item-icon-left">
 			 <i class="icon ion-navigate"></i> Utilizar Minha Localização
 			</a>
 		  <a ng-disabled="form.$invalid" ng-click="buscarPromocoes(filtro)" class="button button-block button-positive item-icon-right">

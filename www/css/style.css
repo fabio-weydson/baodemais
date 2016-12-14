@@ -49,3 +49,16 @@
     font-size: 12px;
     padding: 4px 0;
 }
+
+b.desconto {
+    background-color: red;
+    border-radius: 101%;
+    padding: 17px;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+    margin-left: 70%;
+    margin-top: 11px;
+    border: black;
+    color: white;
+}

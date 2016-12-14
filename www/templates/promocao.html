@@ -2,45 +2,40 @@
   <ion-content ng-class="class">
   	<div class="list">
 	    <a class="item item-thumbnail-left text-left">
-	      <img src="{{dados.empresa.EMP_Foto}}">
+	      <img ng-if="dados.empresa.EMP_Foto" src="{{dados.empresa.EMP_Foto}}">
+	      <img ng-if="!dados.empresa.EMP_Foto" src="https://drogarialecer.com.br/BACKOFFICE/Uploads/Produto/Normal/indisponivel.png">
 	      <h2><b>{{dados.empresa.EMP_Nome}}</b></h2>
 	
 	     <p>{{dados.empresa.EMP_Endereco}}, {{dados.empresa.EMP_Telefone}} <br> {{dados.empresa.EMP_DiaFuncionamento}}<br>{{dados.empresa.EMP_HorarioFuncionamento}}</p>
 	    </a>
 		</div>
-		<h3 class="title">Detalhes</h3>
+		<h3 class="title">Promoções</h3>
   	<div id="cupons" ng-repeat="promocao in dados.promocoes">
   		<div class="row">
 		  	<div class="card">
 				  <div class="item item-text-wrap">
-				    <img src="{{promocao.PRO_Imagem}}" style="width: 100%;">
+				  	<div ng-if="promocao.PRO_PercentualDesconto != 0"><b class="desconto">{{promocao.PRO_PercentualDesconto}}%</b></div>
+				    <img ng-if="promocao.PRO_Imagem" src="{{promocao.PRO_Imagem}}" style="width: 100%;">
+				    <img ng-if="!promocao.PRO_Imagem" src="https://drogarialecer.com.br/BACKOFFICE/Uploads/Produto/Normal/indisponivel.png" style="width: 100%;">
 				    <hr>
 				    <h2><b>{{promocao.PRO_CupomUsado}}</b> - {{promocao.EMP_Nome}}</h2>
-				    <p><b class="text-danger">Válido até:</b> {{promocao.PRO_Vencimento | date:'dd/M/yyyy'}}</p>
+				    <p><b class="text-danger">Válido até:</b> {{promocao.PRO_Vencimento | date:'dd/MM/yyyy'}}</p>
 				    <p>{{promocao.PRO_Descricao}}</p>
 				    <p><b class="text-danger">Regulamento:</b> {{promocao.PRO_Regulamento}}</p>
-				    <p class="preco">De R$ <b class="text-danger">{{promocao.PRO_PrecoAntigo | currency: 'R$ '}}</b> por <b class="text-danger">{{promocao.PRO_PrecoAtual | currency: 'R$ '}}</b></p>
-			    	<div class="card text-center" ng-if="promocao.cupomStatus == 1">
-						  <div class="item item-divider">
-						    Cupom
-						  </div>
-						  <div class="item item-text-wrap">
-						    <h1 class="cupom">{{promocao.PRO_Voucher}}</h1>
-						  </div>
-						</div>
-				    <a ng-if="promocao.cupomStatus == 0" ng-click="adicionarFavoritos(promocao)" class="button button-block button-positive item-icon-left">
-					 		<i class="icon ion-heart"></i> Pegar Cupom
-						</a>
-						<a ng-if="promocao.cupomStatus == 1" disabled class="button button-block button-assertive item-icon-left">
-					 		<i class="icon ion-heart"></i> Cupom utilizado
-						</a>
-						<!-- <ks-swiper-container loop="false" show-nav-buttons="true" slides-per-view="1" space-between="5" pagination-clickable="true">
-					    <ks-swiper-slide class="swiper-slide" ng-repeat="imagens in dados.imagens">
-					        <img ng-src="{{imagens.PROM_Imagem}}" width="100%">
-					    </ks-swiper-slide>            
-						</ks-swiper-container> -->
+				    <div ng-if="promocao.PRO_PrecoAntigo == promocao.PRO_PrecoAtual">
+				    	<p class="preco">R$ <b class="text-danger">{{promocao.PRO_PrecoAntigo | currency: 'R$ '}}</b></p>
+				    </div>
+				    <div ng-if="promocao.PRO_PrecoAntigo != promocao.PRO_PrecoAtual">
+				    	<p class="preco">De R$ <b class="text-danger">{{promocao.PRO_PrecoAntigo | currency: 'R$ '}}</b> por <b class="text-danger">{{promocao.PRO_PrecoAtual | currency: 'R$ '}}</b></p>
+				    </div>
 				  </div>
 				</div>
 			</div>
   	</div>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
  </ion-view>
