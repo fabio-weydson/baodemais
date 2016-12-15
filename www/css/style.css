@@ -52,8 +52,8 @@
 
 b.desconto {
     background-color: red;
-    border-radius: 101%;
-    padding: 17px;
+    border-radius: 100%;
+    padding: 17px 10px;
     text-align: center;
     font-size: 18px;
     position: absolute;

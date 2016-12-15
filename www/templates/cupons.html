@@ -22,13 +22,13 @@
 			</div>
 	  	<div id="cupons" ng-repeat="promocao in dados">
 	  		<div class="row">
-			  	<div class="card">
+			  	<div class="">
 					  <div class="item item-text-wrap">
 					    <img src="{{promocao.PRO_Imagem}}" style="width: 100%;">
-					    <hr>
+					    
 					    <h2>{{promocao.EMP_Nome}}</h2>
 					    <p>{{promocao.EMP_Endereco}}, {{promocao.EMP_Telefone}} - {{promocao.EMP_DiaFuncionamento}}/{{promocao.EMP_HorarioFuncionamento}}</p>
-					    <hr>
+					    
 					    <p><b class="text-danger">Válido até:</b> {{promocao.PRO_Vencimento | date:'dd/M/yyyy'}}</p>
 					    <p>{{promocao.PRO_Descricao}}</p>
 					    <p><b class="text-danger">Regulamento:</b> {{promocao.PRO_Regulamento}}</p>
