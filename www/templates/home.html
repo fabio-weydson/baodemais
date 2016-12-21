@@ -10,19 +10,22 @@
 		    <input type="text" placeholder="Cidade, Estado, Palavras Chave">
 		  </label> -->
 
-		  <label class="item item-input item-select">
-		    <div class="input-label">
-		      Selecione uma cidade
-		    </div>
-		    <select ng-model="filtro.CID_CodigoCidade" ng-required="true">
+		  <label class="item  item-select">
+		    <select style="width:100%;max-width:100%" ng-model="filtro.CID_CodigoCidade" ng-required="true" >
+		    	 <option style="display:none" value="">Selecione uma cidade</option>
 		      <option ng-repeat="estado in dados.estados" ng-value="{{estado.CID_CodigoCidade}}">{{estado.CID_Nome +' - '+ estado.CID_UF}}</option>
 		    </select>
-		  </label>
-		    <a ng-click="getGeoLocation()" class="button button-block button-invert item-icon-left">
+		  </label><br/><br/>
+		<!--     <a ng-click="getGeoLocation()" class="button button-block button-invert item-icon-left">
 			 <i class="icon ion-navigate"></i> Utilizar Minha Localização
-			</a>
+			</a> -->
 		  <a ng-disabled="form.$invalid" ng-click="buscarPromocoes(filtro)" class="button button-block button-positive item-icon-right">
 			 <i class="icon ion-ios-arrow-forward"></i> Buscar Promoções
+			</a>
+
+			<br/><br/><br/><br/>
+			  <a href="http://www.baodemaisdaconta.com.br" class="button button-block button-light  button-small">
+			 Para mais informações visite <span class="text-danger">baodemaisdaconta.com.br</span>
 			</a>
 			<!-- <a ng-click="deleteStorage()" class="button button-block button-assertive item-icon-left">
 			 <i class="icon ion-search"></i> #DELETE#

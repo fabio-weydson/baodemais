@@ -12,12 +12,12 @@
 		<h3 class="title">Promoções</h3>
   	<div id="cupons" ng-repeat="promocao in dados.promocoes">
   		<div class="row">
-		  	<div class="card">
+		  	
 				  <div class="item item-text-wrap">
 				  	<div ng-if="promocao.PRO_PercentualDesconto != 0"><b class="desconto">{{promocao.PRO_PercentualDesconto}}%</b></div>
 				    <img ng-if="promocao.PRO_Imagem" src="{{promocao.PRO_Imagem}}" style="width: 100%;">
 				    <img ng-if="!promocao.PRO_Imagem" src="https://drogarialecer.com.br/BACKOFFICE/Uploads/Produto/Normal/indisponivel.png" style="width: 100%;">
-				    <hr>
+				  
 				    <h2><b>{{promocao.PRO_CupomUsado}}</b> - {{promocao.EMP_Nome}}</h2>
 				    <p><b class="text-danger">Válido até:</b> {{promocao.PRO_Vencimento | date:'dd/MM/yyyy'}}</p>
 				    <p>{{promocao.PRO_Descricao}}</p>
@@ -29,7 +29,7 @@
 				    	<p class="preco">De R$ <b class="text-danger">{{promocao.PRO_PrecoAntigo | currency: 'R$ '}}</b> por <b class="text-danger">{{promocao.PRO_PrecoAtual | currency: 'R$ '}}</b></p>
 				    </div>
 				  </div>
-				</div>
+				
 			</div>
   	</div>
   	<br>
